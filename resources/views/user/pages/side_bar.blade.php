@@ -14,3 +14,15 @@
     <li class="list-group-item">Second item</li>
     <li class="list-group-item">Third item</li>
 </ul>
+<img class="rounded-circle card-img-top" style="border-radius: 50%;" src="" alt="User Avatar" width="100%">
+
+<ul class="list-group list-group-flush">
+    <a href="" class="btn btn-primary btn-sm btn-block ">Home</a>
+    <a href="" class="btn btn-primary btn-sm btn-block">Profile
+        Update</a>
+    <a href="" class="btn btn-primary btn-sm btn-block">Change
+        Password</a>
+    <a href="" class="btn btn-primary btn-sm btn-block">My
+        Orders</a>
+    <a href="" class="btn btn-danger btn-sm btn-block">Logout</a>
+</ul>

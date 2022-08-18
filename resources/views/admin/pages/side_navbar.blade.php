@@ -33,13 +33,16 @@
         </div> --}}
 
         <!-- Sidebar Menu -->
+
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
        with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
+                    {{-- {{ Route::is('admin.dashboard') ? 'active' : '' }} --}}
+                    <a href="{{ route('admin.dashboard') }}"
+                        class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         Dashboard</a>
                 </li>
@@ -109,22 +112,8 @@
                     </a>
                 </li>
 
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-globe"></i>
-                        Website</a>
-                </li>
 
-                <li class="nav-header">User Setting</li>
-                <li class="nav-item menu-open bg-danger">
-                    <a href="#" class="nav-link">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        {{-- <i class="nav-icon fas fa-arrow-right"></i>
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i> --}}
-                        Logout</a>
-                </li>
             </ul>
-
 
         </nav>
         <!-- /.sidebar-menu -->
