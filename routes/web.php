@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\user\UserController;
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\website\WebsiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,7 @@ use App\Http\Controllers\admin\AdminController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', [WebsiteController::class, 'index'])->name('website');
 
 Auth::routes();
 
@@ -25,23 +27,24 @@ Auth::routes();
 
 
 // =================================== Admin Route ===================================
-Route::group(['prefix'=>'admin','middleware'=>['auth','role']], function(){
-// Route::prefix('admin')->middleware(['auth', 'admin'])->group(function (){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function () {
+    // Route::prefix('admin')->middleware(['auth', 'admin'])->group(function (){
 
-    Route::get('dashboard', [AdminController::class,'index'])->name('admin.dashboard');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
     //Admin Profile
 
- });
+});
 
 // ===================================  User Route  Start ===================================
 
-Route::middleware(['auth'])->group(function (){
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/user/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
+    Route::get('logout', [UserController::class, 'logout'])->name('user.logout');
+    Route::get('user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
 
- });
+});
 
 
  // ===================================  User Route End ===================================
-
