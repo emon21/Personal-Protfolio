@@ -149,7 +149,7 @@
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer border-bottom d-flex">
-                    <a href="{{ route('logout') }}" class="btn btn-outline-success"><i class="fa fa-user"
+                    <a href="{{ route('admin.profile') }}" class="btn btn-outline-success"><i class="fa fa-user"
                             aria-hidden="true"></i>Profile</a>
 
                     <a href="javascript:void(0)"

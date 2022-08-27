@@ -34,6 +34,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role']], function (
     Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
     //Admin Profile
 
+    Route::get('Admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+    Route::get('admin/profile/edit', [AdminController::class, 'AdminProfileEdit'])->name('admin.profile.edit');
+    Route::post('admin/profile/update', [AdminController::class, 'AdminProfileUpdate'])->name('admin.profile.update');
+
+    //change Password
+    Route::get('admin/password/change', [AdminController::class, 'AdminPasswordChange'])->name('admin.password.change');
+    Route::post('admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
 });
 
 // ===================================  User Route  Start ===================================
@@ -42,8 +49,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/user/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
     Route::get('logout', [UserController::class, 'logout'])->name('user.logout');
-    Route::get('user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
+    Route::get('user/profile/{user}', [UserController::class, 'UserProfile'])->name('user.profile');
+    Route::post('user/update/{user}', [UserController::class, 'ProfileUpdate'])->name('user.update');
 
+    //User Acount
+    // Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
+    // Route::post('/user/profile/update', [UserController::class, 'UserProfileUpdate'])->name('user.profile.update');
+
+    Route::get('user/password/change', [UserController::class, 'UserPasswordChange'])->name('user.password.change');
+    Route::post('user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
 });
 
 
