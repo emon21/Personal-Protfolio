@@ -18,7 +18,8 @@ class AdminController extends Controller
     public function AdminProfile()
     {
         $user = Auth::user();
-        // return $user;
+
+       // return $user2;
         return view('admin.profile', compact('user'));
     }
 
@@ -35,7 +36,7 @@ class AdminController extends Controller
             //delete File
             // if(file_exists($user->image)){
             //    unlink($user->image);
-              
+
             // }
             //file upload
             $file = $req->file('profile_photo');
@@ -43,13 +44,13 @@ class AdminController extends Controller
             $filename = time() . '.' . $file->getClientOriginalextension();
             $file->move(public_path('admin/'), $filename);
             $user['image'] = $filename;
-           
-       
+
+
 
         }
 
              //User Profile Change
-    //   if($request->hasFile('profile_photo')) { 
+    //   if($request->hasFile('profile_photo')) {
     //     //delete File
     //     // if(file_exists($user->profile_photo)){
     //     //    unlink($user->profile_photo);
@@ -60,7 +61,7 @@ class AdminController extends Controller
 
     //     //upload user image
     //     $filename = time() . '.' .$file->getClientOriginalextension();
-    //     $file->move(public_path('upload/user_images/'), $filename); 
+    //     $file->move(public_path('upload/user_images/'), $filename);
     //     $user->profile_photo = $filename;
     //  }
 

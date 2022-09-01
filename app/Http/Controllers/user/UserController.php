@@ -49,7 +49,7 @@ class UserController extends Controller
             //delete File
             // if(file_exists($user->image)){
             //    unlink($user->image);
-              
+
             // }
             //file upload
             $file = $request->file('profile_photo');
@@ -57,8 +57,6 @@ class UserController extends Controller
             $filename = time() . '.' . $file->getClientOriginalextension();
             $file->move(public_path('user/'), $filename);
             $user['image'] = $filename;
-           
-       
 
         }
 
