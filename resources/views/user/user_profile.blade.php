@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-header">{{ __('User Profile') }}</div>
                 <div class="card-body">
-                    <form action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('user.update') }}" method="post" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row">
@@ -24,14 +24,14 @@
                                         class="form-control unicase-form-control text-input @error('name') is-invalid @enderror"
                                         id="email" name="name" value="{{ $user->name }}">
                                 </div>
-    
+
                                 <div class="form-group">
                                     <label class="info-title" for="email">Email Address <span>*</span></label>
                                     <input type="email"
                                         class="form-control unicase-form-control text-input @error('email') is-invalid @enderror"
                                         id="email" name="email" value="{{ $user->email }}">
                                 </div>
-    
+
                                 <div class="form-group">
                                     <label class="info-title" for="phone">Phone No <span>*</span></label>
                                     <input type="text"
@@ -43,10 +43,10 @@
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-file" aria-hidden="true"></i>
-    
+
                                         </div>
                                         <input type="file" class="form-control" name="profile_photo" id="image">
-    
+
                                     </div>
                                 </div>
                             </div>
@@ -62,15 +62,15 @@
                                             padding: 10px;
                                             text-align: center;">Profile
                                                 Photo</label>
-    
+
                                             <img id="showImage" class="img-fluod rounded"
-                                                src="{{ !empty($user->image) ? url('user/', $user->image) : url('user/default.png') }}"
+                                                src="{{ !empty($user->image) ? url($user->image) : url('user/default.png') }}"
                                                 alt="User Avatar"
                                                 style="width: 150px;
                                                 height: 150px;
                                                 margin-top: 11px;
                                                 margin-left: 25px;">
-    
+
                                             {{-- <img class="rounded-circle card-img-top" style="border-radius: 50%;"
                                                 src="{{ !empty($user->profile_photo) ? 'upload/user_images/' . $user->profile_photo : url('upload/user_images/default.png') }}"
                                                 alt="User Avatar" width="100%"> --}}
@@ -79,13 +79,13 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <button type="submit" class="btn-upper btn btn-success checkout-page-button"
                             style="margin-top:0px;">Profile
                             Update</button>
                     </form>
 
-                    
+
                 </div>
             </div>
         </div>

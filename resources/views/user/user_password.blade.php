@@ -24,7 +24,7 @@
                                     <input type="password"
                                         class="form-control pl-15 bg-transparent plc-white @error('current_password') is-invalid @enderror"
                                         name="current_password" autocomplete="current_password"
-                                        placeholder="Enter Current Password" value="{{ $user->password }}">
+                                        placeholder="Enter Current Password" value="{{ old('current_password') }}">
                                 </div>
                                 @error('current_password')
                                     <div class="text-danger">{{ $message }}</div>

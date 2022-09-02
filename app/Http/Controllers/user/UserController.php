@@ -29,17 +29,17 @@ class UserController extends Controller
     //     return redirect('/login');
     // }
 
-    public function UserProfile(User $user)
+    public function UserProfile()
     {
-        // $user = Auth::user();
+         $user = Auth::user();
         // return $user;
         return view('user.user_profile', compact('user'));
     }
 
-    public function ProfileUpdate(Request $request, User $user)
+    public function ProfileUpdate(Request $request)
     {
         //return  $user;
-        //$user = Auth::user();
+        $user = Auth::user();
         // $user = User::find($request->user);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -49,16 +49,22 @@ class UserController extends Controller
             //delete File
             // if(file_exists($user->image)){
             //    unlink($user->image);
-              
+
             // }
             //file upload
             $file = $request->file('profile_photo');
             @unlink(public_path('user/' . $user->image));
             $filename = time() . '.' . $file->getClientOriginalextension();
             $file->move(public_path('user/'), $filename);
-            $user['image'] = $filename;
-           
-       
+           // $user['image'] = $filename;
+            $user->image = 'user/'.$filename;
+
+        //      $filename = time() . '.' .$request->user_picture->getClientOriginalextension();
+        //  $request->user_picture->move(public_path('backend/user/'), $filename);
+        //  $user->image = 'backend/user/'.$filename;
+        //  $user->save();
+
+
 
         }
 

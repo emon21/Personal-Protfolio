@@ -6,8 +6,11 @@ $route = Route::current()->getName();
 
 <div class="card mb-2">
     <div class="card-body">
-        <img class="rounded-circle card-img-top" style="border-radius: 50%;" src="{{ asset('user/user.png') }}"
+        <img class="rounded-circle card-img-top" style="border-radius: 20%;" src="{{ asset( Auth::user()->image) }}"
             alt="User Avatar" width="100">
+
+             {{-- <img src="@if ($user->image) {{ asset($user->image) }} @else {{ asset('backend/user/user.png') }} @endif"
+                    class="img-fluid rounded-circle img-rounded" alt=""> --}}
         <h4 class="card-title text-center pt-2 text-success">{{ Auth::user()->name }}</h4>
         <div class="d-flex justify-content-center">
             <a href="#" class="card-link btn btn-success"><i class="fa fa-bandcamp" aria-hidden="true"></i>
@@ -23,13 +26,13 @@ $route = Route::current()->getName();
         class="list-group-item list-group-item-action {{ $route == 'user.dashboard' ? 'active btn btn-success' : '' }}"><i
             class="fa fa-tachometer" aria-hidden="true"></i>
         Dashboard</a>
-    <a href="{{ route('user.profile', Auth::user()->id) }}"
+    <a href="{{ route('user.profile') }}"
         class="list-group-item list-group-item-action {{ $route == 'user.profile' ? 'active btn btn-success' : '' }}">Profile
         Update</a>
     <a href="{{ route('user.password.change') }}"
         class="list-group-item list-group-item-action {{ $route == 'user.password.change' ? 'active btn btn-success' : '' }}">Change
         Password</a>
-        
+
     <a href="{{ route('user.logout') }}" class="list-group-item  btn btn-danger btn-sm btn-block text-left">Logout</a>
     {{-- <a href="" class="btn btn-danger btn-sm btn-block">Logout</a> --}}
 
