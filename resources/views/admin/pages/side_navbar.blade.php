@@ -11,11 +11,13 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('backend') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                <img src="{{ asset('admin') }}/{{Auth::user()->image}}" class="img-circle elevation-2"
                     alt="User Image">
+                     <img src="@if (Auth::user()->image) {{ asset('admin',Auth::user()->image) }} @else {{ asset('backend/user/user.png') }} @endif"
+                    class="img-fluid rounded-circle img-rounded" alt="">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="" class="d-block">Alexander Pierce</a>
             </div>
         </div>
 

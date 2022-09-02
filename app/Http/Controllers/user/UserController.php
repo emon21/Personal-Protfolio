@@ -56,6 +56,7 @@ class UserController extends Controller
             @unlink(public_path('user/' . $user->image));
             $filename = time() . '.' . $file->getClientOriginalextension();
             $file->move(public_path('user/'), $filename);
+            
            // $user['image'] = $filename;
             $user->image = 'user/'.$filename;
 
@@ -63,7 +64,6 @@ class UserController extends Controller
         //  $request->user_picture->move(public_path('backend/user/'), $filename);
         //  $user->image = 'backend/user/'.$filename;
         //  $user->save();
-
 
 
         }
