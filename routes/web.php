@@ -49,8 +49,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/user/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
     Route::get('logout', [UserController::class, 'logout'])->name('user.logout');
-    Route::get('user/profile/{user}', [UserController::class, 'UserProfile'])->name('user.profile');
-    Route::post('user/update/{user}', [UserController::class, 'ProfileUpdate'])->name('user.update');
+    Route::get('user/profile/', [UserController::class, 'UserProfile'])->name('user.profile');
+    Route::post('user/update/', [UserController::class, 'ProfileUpdate'])->name('user.update');
 
     //User Acount
     // Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
